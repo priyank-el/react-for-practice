@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import totalData from '../../data/totalData'
 import { Link } from 'react-router-dom'
 
-function AddDataPage() {
+function UpdateDataPage() {
 
     const {data,setdata} = useContext(UserName)
 
@@ -28,7 +28,6 @@ function AddDataPage() {
                 name="basic"
                 onFinish={onFinish}
             >
-                <h1 className='text-4xl font-extrabold mb-3'>Add data</h1>
                 <Form.Item
                     label="Username"
                     name="username"
@@ -76,7 +75,7 @@ function AddDataPage() {
                         Add
                     </Button>
                 </Form.Item>
-                <Link className='ms-10'>Update</Link>
+                <Link>Update</Link>
             </Form>
         </div>
             
@@ -85,4 +84,4 @@ function AddDataPage() {
     )
 }
 
-export default AddDataPage
+export default UpdateDataPage
