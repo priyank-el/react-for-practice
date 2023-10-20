@@ -1,8 +1,10 @@
 import { Table } from "antd"
 import data from '../../data/totalData'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 function AllDataPage() {
+
+  const [array,setArray] = useState([])
 
   const columns = [
     {
@@ -33,21 +35,24 @@ function AllDataPage() {
             .indexOf(_.email);
           data.splice(index, 1)
           console.log(data);
-          <Navigate to={"/all"}/>
+          setArray(data)
         }}>Delete</a>
       ),
     },
   ];
-  
-   let dataSource = data.map((data, index) => {
-      return {
-        ...data,
-        key: index + 1
-      }
-    })
+    useEffect(()=>{
+      let dataSource = data.map((data, index) => {
+        return {
+          ...data,
+          key: index + 1
+        }
+      })
+      setArray(dataSource)
+    },[setArray])
+   
 
   return (
-    <Table dataSource={dataSource} columns={columns} />
+    <Table dataSource={array} columns={columns} />
   )
 }
 
