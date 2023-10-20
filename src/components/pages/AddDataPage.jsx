@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 function AddDataPage() {
 
-    const {data,setdata} = useContext(UserName)
+    // const {data,setdata} = useContext(UserName)
 
     const onFinish = (values) => {
         const objectData = {
@@ -15,7 +15,7 @@ function AddDataPage() {
             password:values.password
         }
         totalData.push(objectData)
-        if(objectData) setdata(totalData)
+        // if(objectData) setdata(totalData)
 
     }
 
@@ -76,7 +76,9 @@ function AddDataPage() {
                         Add
                     </Button>
                 </Form.Item>
+                
                 <Link className='ms-10'>Update</Link>
+                <Link className='ms-10' to={'/all'}>Delete</Link>
             </Form>
         </div>
             
